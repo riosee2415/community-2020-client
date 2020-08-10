@@ -1,6 +1,7 @@
 import React from "react";
 import Flip from "react-reveal/Flip";
 import Bounce from "react-reveal/Bounce";
+import { Link } from "react-router-dom";
 
 class MM00_V extends React.Component {
   constructor(props) {
@@ -10,15 +11,15 @@ class MM00_V extends React.Component {
       menus: [
         {
           menuName: "FREE BOARD",
-          link: "",
+          link: "/freeboard",
         },
         {
           menuName: "DOCUMENTS BOARD",
-          link: "",
+          link: "/docsboard",
         },
         {
           menuName: "GALLARY",
-          link: "",
+          link: "/gallaryboard",
         },
       ],
     };
@@ -36,7 +37,9 @@ class MM00_V extends React.Component {
           {menus.map((menu, idx) => {
             return (
               <Bounce bottom delay={idx * 250} key={idx}>
-                <div className="MM00_V__menuBox__menu">{menu.menuName}</div>
+                <Link to={menu.link}>
+                  <div className="MM00_V__menuBox__menu">{menu.menuName}</div>
+                </Link>
               </Bounce>
             );
           })}
